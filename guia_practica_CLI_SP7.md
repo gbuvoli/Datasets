@@ -84,7 +84,7 @@ clear
 ### 📝 Crear archivo con contenido y salto de línea
 
 ```bash
-echo -e "Línea 1\nLínea 2" > multilinea.txt
+echo "Línea 1\nLínea 2" > multilinea.txt
 ```
 
 ### 📄 Ver contenido del archivo
