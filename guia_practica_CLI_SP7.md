@@ -8,8 +8,9 @@ Aprender a navegar por carpetas, crear archivos, visualizar su contenido y manip
 ## 🧩 ¿Cómo abrir la terminal?
 
 ### 🪟 Windows
-- CMD: Presiona `Win + R`, escribe `cmd` y presiona Enter
 - PowerShell: Presiona `Win + X` y selecciona PowerShell
+- CMD: Presiona `Win + R`, escribe `cmd` y presiona Enter
+
 
 ### 🍎 macOS
 - Presiona `Cmd + Espacio`, escribe `Terminal` y presiona Enter
@@ -76,8 +77,8 @@ clear
 ### 🆕 Crear un archivo vacío
 
 ```bash
-# En Mac/Linux o Git Bash
-touch nuevo.txt
+# En windows
+"" > nuevo.txt
 ```
 
 ### 📝 Crear archivo con contenido y salto de línea
@@ -180,7 +181,6 @@ Esto mueve el archivo a una carpeta y al mismo tiempo le cambia el nombre.
 | `dir`                             | Listar archivos y carpetas (Windows)                                |
 | `ls`                              | Listar archivos y carpetas (Mac/Linux)                              |
 | `mkdir nombre`                    | Crear una carpeta nueva                                             |
-| `touch archivo.txt`              | Crear un archivo vacío (Mac/Linux o Git Bash)                       |
 | `echo "texto" > archivo.txt`      | Crear archivo con contenido                                         |
 | `echo "texto" >> archivo.txt`     | Agregar contenido a un archivo existente                            |
 | `echo -e "L1\nL2" > archivo.txt` | Escribir múltiples líneas con salto de línea (Linux/Mac)            |
