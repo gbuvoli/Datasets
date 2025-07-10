@@ -178,6 +178,12 @@ Muestra todos los commits con su código (hash), autor y mensaje.
 >Cada vez que haces un `git commit`, Git genera un **hash (ID único)** para identificar ese cambio.  
 Este hash es una cadena de letras y números que puedes usar para referenciar esa versión exacta del proyecto.
 
+### ✅ ¿Para qué sirve?
+
+- **Explorar** una versión anterior sin afectar tu trabajo actual.
+- **Volver** todo el proyecto a ese estado con `reset`.
+- **Recuperar** un archivo como estaba en ese momento:
+
 ---
 
 > Verás algo como:
@@ -202,7 +208,9 @@ git checkout 3f2c4a8
 ```bash
 git checkout <hash-del-commit>
 ```
-
+```bash
+git checkout 3f2c4a8 -- archivo.txt
+```
 Esto te lleva a una versión anterior en modo solo lectura (detached HEAD).  
 Ideal para revisar, **pero no trabajes ni hagas commits aquí directamente.**
 
@@ -240,54 +248,6 @@ Trae una versión antigua de un archivo sin afectar el resto del proyecto.
 ---
 
 💡 **Recomendación:** para principiantes, usa `git log` y `git checkout <hash>` solo para explorar. Usa `reset` con precaución.
-
-
 ---
 
-## 🧬 ¿Qué es el hash de un commit?
-
-Cada vez que haces un `git commit`, Git genera un **hash (ID único)** para identificar ese cambio.  
-Este hash es una cadena de letras y números que puedes usar para referenciar esa versión exacta del proyecto.
-
----
-
-### 🔍 ¿Dónde se ve?
-
-Usa:
-
-```bash
-git log
-```
-
-Verás algo como:
-
-```
-commit 3f2c4a8b9e0e1e58739c835a1ff14c18a5aeb9a1
-Author: Estudiante <correo@ejemplo.com>
-Date:   Tue Jun 6 10:45:00 2025 -0500
-
-    Agrego archivo README.md
-```
-
-- El código que aparece después de `commit` es el **hash del commit**.
-- Puedes usar solo los primeros 7-10 caracteres para referenciarlo:
-
-```bash
-git checkout 3f2c4a8
-```
-
----
-
-### ✅ ¿Para qué sirve?
-
-- **Explorar** una versión anterior sin afectar tu trabajo actual.
-- **Volver** todo el proyecto a ese estado con `reset`.
-- **Recuperar** un archivo como estaba en ese momento:
-
-```bash
-git checkout 3f2c4a8 -- archivo.txt
-```
-
----
-
-💡 Git utiliza estos hashes para que puedas navegar en el tiempo de forma precisa y confiable.
+👾 ** Ahora estas listo para la aventura con GIt HUB** 
