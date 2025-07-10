@@ -77,7 +77,41 @@ git commit -m "Agrego presentación personal"
 git push origin mejora-readme
 ```
 
-Puedes hacer una Pull Request desde GitHub para unir esta rama a `main`.
+💡 ** Puedes hacer una Pull Request desde GitHub para unir esta rama a `main`.** 
+
+
+Sigue estos pasos para proponer la fusión de tu rama `mejora-readme` a la rama principal `main` usando GitHub:
+
+### 1. Ve al repositorio en GitHub
+Accede a tu repositorio en GitHub desde el navegador.
+
+### 2. Cambia a la rama `mejora-readme`
+En la esquina superior izquierda, haz clic en el selector de ramas (probablemente dice `main`), y elige `mejora-readme`.
+
+### 3. Haz clic en “Compare & pull request”
+GitHub detectará que hiciste cambios en `mejora-readme` y mostrará un botón verde que dice `Compare & pull request`. Haz clic allí.
+
+### 4. Revisa los cambios
+GitHub te mostrará un resumen con los commits y archivos modificados. Asegúrate de que todo está correcto.
+
+### 5. Verifica las ramas de comparación
+Confirma que estás comparando así:
+
+> base: main ← compare: mejora-readme
+> Esto significa que quieres fusionar los cambios de `mejora-readme` hacia `main`.
+
+
+### 6. Completa el formulario
+Escribe un título descriptivo (por ejemplo: `Mejora del README`) y una breve descripción de los cambios que hiciste.
+
+### 7. Crea la Pull Request
+Haz clic en el botón `Create pull request`.
+
+### 8. (Opcional) Haz el merge
+Si trabajas sola o ya revisaste los cambios, puedes hacer clic en `Merge pull request` para aplicar los cambios en `main`.
+
+> ✅ GitHub también te ofrecerá la opción de borrar la rama `mejora-readme` si ya no la necesitas.
+
 
 ---
 
