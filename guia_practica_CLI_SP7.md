@@ -28,11 +28,9 @@ Aprender a navegar por carpetas, crear archivos, visualizar su contenido y manip
 ### 1️⃣ Ver en qué carpeta estás
 
 ```bash
-# En Windows
-pwd
 
-# En Mac/Linux
-pwd
+pwd # En Windows / Mac/Linux
+
 ```
 
 ### 2️⃣ Listar archivos y carpetas
@@ -67,11 +65,9 @@ cd C:/Users/TuUsuario/Documentos/proyecto
 ### 6️⃣ Limpiar la pantalla de la terminal
 
 ```bash
-# En Windows
-cls
 
-# En Mac/Linux
-clear
+cls # En Windows
+clear # En Mac/Linux /Windows
 ```
 
 ---
@@ -103,7 +99,7 @@ cat archivo.txt         # Linux/Mac/Windows
 ```bash
 echo "Nueva línea" >> archivo.txt
 ```
-
+> Cuidado con reemplazar el archivo existente! Utilizar `>` es diferente a `>>`
 ---
 
 ## ✏️ Copiar, mover y renombrar archivos
