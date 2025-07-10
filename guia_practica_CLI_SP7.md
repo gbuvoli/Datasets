@@ -5,11 +5,14 @@ Aprender a navegar por carpetas, crear archivos, visualizar su contenido y manip
 
 ---
 
-## 🧩 ¿Cómo abrir la terminal?
+## 🧩 ¿Cómo abrir las terminales?
 
 ### 🪟 Windows
-- PowerShell: Presiona `Win + X` y selecciona PowerShell
-- CMD: Presiona `Win + R`, escribe `cmd` y presiona Enter
+- **PowerShell:** Presiona `Win + X` y selecciona Terminal
+- **CMD:** Presiona `Win + R`, escribe `cmd` y presiona Enter
+
+  
+> **Activar subsistema LINUX**: Ingresa a alguna de las terminales y escribe `wsl`
 
 
 ### 🍎 macOS
