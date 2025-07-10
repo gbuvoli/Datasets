@@ -29,7 +29,7 @@ Aprender a navegar por carpetas, crear archivos, visualizar su contenido y manip
 
 ```bash
 # En Windows
-cd
+pwd
 
 # En Mac/Linux
 pwd
@@ -40,6 +40,7 @@ pwd
 ```bash
 # En Windows
 dir
+ls
 
 # En Mac/Linux
 ls
