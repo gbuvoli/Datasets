@@ -95,7 +95,7 @@ echo "Línea 1\nLínea 2" > multilinea.txt
 
 ```bash
 type archivo.txt        # Windows
-cat archivo.txt         # Linux/Mac
+cat archivo.txt         # Linux/Mac/Windows
 ```
 
 ### ➕ Agregar texto a un archivo existente
