@@ -53,7 +53,7 @@ git commit -m "Agrego archivo README.md"
 ## ✅ PASO 5: Subir cambios a GitHub
 
 ```bash
-git push origin main
+git push -u origin main
 ```
 
 > Si es tu primer push, Git puede pedir autenticación. Usa tu usuario y token de GitHub.
