@@ -1,0 +1,127 @@
+-- ===============================================================
+-- CREACIÓN DE TABLAS
+-- ===============================================================
+
+DROP TABLE IF EXISTS order_items;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS campaigns;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS customers;
+
+CREATE TABLE customers (
+    customer_id   INTEGER PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    country       VARCHAR(50),
+    segment       VARCHAR(50)
+);
+
+CREATE TABLE products (
+    product_id   INTEGER PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    category     VARCHAR(50),
+    unit_price   DECIMAL(10,2) NOT NULL,
+    unit_cost    DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE campaigns (
+    campaign_id       INTEGER PRIMARY KEY,
+    campaign_name     VARCHAR(100) NOT NULL,
+    start_date        DATE,
+    end_date          DATE,
+    channel           VARCHAR(50),
+    investment_amount DECIMAL(12,2) NOT NULL
+);
+
+CREATE TABLE orders (
+    order_id    INTEGER PRIMARY KEY,
+    order_date  DATE NOT NULL,
+    customer_id INTEGER NOT NULL,
+    campaign_id INTEGER,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (campaign_id) REFERENCES campaigns(campaign_id)
+);
+
+CREATE TABLE order_items (
+    order_item_id INTEGER PRIMARY KEY,
+    order_id      INTEGER NOT NULL,
+    product_id    INTEGER NOT NULL,
+    quantity      INTEGER NOT NULL,
+    unit_price    DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- ===============================================================
+-- INSERTAR MUCHOS CLIENTES
+-- ===============================================================
+
+INSERT INTO customers VALUES
+(1, 'Juan Pérez', 'Colombia', 'Retail'),
+(2, 'María Gómez', 'México', 'Online'),
+(3, 'Luis Hernández', 'USA', 'Enterprise'),
+(4, 'Ana Torres', 'España', 'Retail'),
+(5, 'Pedro Ruiz', 'Argentina', 'Online'),
+(6, 'Sofía Delgado', 'Chile', 'Retail'),
+(7, 'Carlos Silva', 'Brasil', 'Enterprise'),
+(8, 'Julia Castro', 'Colombia', 'Online'),
+(9, 'Diego López', 'USA', 'Retail'),
+(10, 'Gabriela Ortiz', 'España', 'Enterprise'),
+(11, 'Ricardo Molina', 'México', 'Online'),
+(12, 'Laura Castillo', 'Chile', 'Retail'),
+(13, 'Samuel Méndez', 'Argentina', 'Retail'),
+(14, 'Paula Salinas', 'Brasil', 'Online'),
+(15, 'Daniel Cuevas', 'Colombia', 'Enterprise');
+
+-- ===============================================================
+-- INSERTAR PRODUCTOS (10 PROD)
+-- ===============================================================
+
+INSERT INTO products VALUES
+(1, 'Laptop Pro 15', 'Hardware', 1200, 800),
+(2, 'Mouse Inalámbrico', 'Accesorios', 25, 10),
+(3, 'Teclado Mecánico', 'Accesorios', 80, 35),
+(4, 'Monitor 27"', 'Hardware', 320, 200),
+(5, 'Software CRM Pro', 'Software', 300, 50),
+(6, 'Audífonos Pro', 'Accesorios', 150, 60),
+(7, 'Tablet 10"', 'Hardware', 450, 300),
+(8, 'Servicio de Soporte', 'Servicios', 200, 40),
+(9, 'Router WiFi 6', 'Hardware', 180, 100),
+(10, 'Licencia Analytics', 'Software', 500, 100);
+
+-- ===============================================================
+-- CAMPAÑAS CON INVERSIÓN (perfecto para ROI)
+-- ===============================================================
+
+INSERT INTO campaigns VALUES
+(1, 'Campaña Black Friday', '2024-10-20', '2024-12-01', 'Ads', 10000),
+(2, 'Campaña Navidad', '2024-12-05', '2025-01-05', 'Email', 7000),
+(3, 'Campaña Back to School', '2024-07-01', '2024-08-20', 'Social Media', 5000),
+(4, 'Campaña Primavera', '2025-03-01', '2025-03-31', 'Ads', 6000),
+(5, 'Campaña Verano', '2024-06-01', '2024-06-30', 'SEO', 4000);
+
+-- ===============================================================
+-- ÓRDENES (MUCHAS ÓRDENES EN MESES DISTINTOS PARA TENDENCIAS)
+-- ===============================================================
+
+INSERT INTO orders VALUES
+-- ===========================================================
+-- GENERAR 500 REGISTROS EN order_items AUTOMÁTICAMENTE
+-- ===========================================================
+
+WITH RECURSIVE seq AS (
+    SELECT 1 AS n
+    UNION ALL
+    SELECT n + 1 FROM seq WHERE n < 500
+)
+INSERT INTO order_items (order_item_id, order_id, product_id, quantity, unit_price)
+SELECT
+    n + 1000,  -- evita colisión con los primeros 28 registros
+    1 + (n % 20),              -- order_id entre 1 y 20
+    1 + (n % 10),              -- product_id entre 1 y 10
+    1 + (n % 5),               -- quantity entre 1 y 5
+    p.unit_price              -- precio real del producto
+FROM seq
+JOIN products p
+    ON p.product_id = 1 + (seq.n % 10)
+ORDER BY n;
+
